@@ -1,0 +1,20 @@
+.world-wrapper {
+    max-width: 100%;
+    height: 785px;
+}
+
+.country {
+    transition: 0.2s;
+}
+
+.line {
+    transition: ease-in 0.1s;
+    opacity: 0;
+}
+
+#clinicalTrials:hover + #clinicalTrialsLines .line,
+.approvedIcon:hover + .approvedLines .line,
+.compassionateIcon:hover + .compassionateLines .line {
+    opacity: 1;
+    z-index: 1;
+}
