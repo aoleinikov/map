@@ -1,11 +1,4 @@
-
 function mapInit() {
-  const isTabletOrMore = window.innerWidth > 767;
-
-  if (!isTabletOrMore) {
-    return;
-  }
-
   const world = document.querySelector('.world-wrapper');
   const countries = world.querySelectorAll('.country');
   const buttons = world.querySelectorAll('.symbol')
@@ -28,14 +21,20 @@ function mapInit() {
       const id = button.classList[1];
       const activeCls = 'activeClick';
       const activeClsLine = 'activeLineClick';
+      const Lines = world.querySelectorAll('.compassionate' + id + '+ .compassionateLines .line')
       const line = world.querySelectorAll('.to' + id)
+      const compassionBlocks = world.querySelectorAll('.compassionate' + id)
+      const activeLines = [...Lines].filter(it => it.classList.contains(activeClsLine) && !it.classList.contains('to' + id));
+
       let isActive = false;
-      world.querySelectorAll('.compassionate' + id).forEach(el => {
-        isActive = [...el.classList].includes(activeCls)
-        isActive ? el.classList.remove(activeCls) : el.classList.add(activeCls)
+      compassionBlocks.forEach(el => {
+
+        isActive = el.classList.contains(activeCls)
+        if (!activeLines.length) {
+          isActive ? el.classList.remove(activeCls) : el.classList.add(activeCls)
+        }
       })
-      console.log(line)
-      line.forEach(l => isActive ? l.classList.remove(activeClsLine) : l.classList.add(activeClsLine));
+      line.forEach(l => isActive && l.classList.contains(activeClsLine) ? l.classList.remove(activeClsLine) : l.classList.add(activeClsLine));
     })
   })
 

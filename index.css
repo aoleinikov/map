@@ -8,8 +8,9 @@
 }
 
 .line {
-    transition: linear 0.4s;
+    transition: 0.4s;
     opacity: 0;
+    /*display: none;*/
 }
 
 .compassionateDesc, .compassionateIcon {
@@ -19,29 +20,28 @@
     z-index: -110;
 }
 
-@media screen and (min-width: 767px) {
 
-    .compassionateDesc {
-        transition: opacity 0.3s 0.2s;
-    }
-
-    .compassionateIcon {
-        transition: opacity 0.4s 0.1s;
-    }
-
-    .clinicalTrials:hover + .clinicalTrialsLines .line,
-    .approvedIcon:hover + .approvedLines .line,
-    .compassionateIcon:hover + .compassionateLines .line,
-    .activeLineClick.line {
-        opacity: 1;
-        z-index: 1;
-    }
-
-
-    .active, .activeClick {
-        display: block;
-        opacity: 1;
-        z-index: 1;
-    }
-
+.compassionateDesc {
+    transition: opacity 0.3s 0.2s;
 }
+
+.compassionateIcon {
+    transition: opacity 0.4s 0.1s;
+}
+
+.clinicalTrials:hover + .clinicalTrialsLines .line,
+.approvedIcon:hover + .approvedLines .line,
+.compassionateIcon:hover + .compassionateLines .line,
+.world-wrapper .activeLineClick.line {
+    /*display: block;*/
+    opacity: 1;
+    z-index: 1;
+}
+
+
+.active, .activeClick {
+    display: block;
+    opacity: 1;
+    z-index: 1;
+}
+
